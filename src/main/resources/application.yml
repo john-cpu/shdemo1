@@ -1,0 +1,32 @@
+db:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/shiro?serverTimezone=UTC
+  username: root
+  password: 123456
+hibernate:
+  show_sql: true
+  format_sql: true
+  ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  hbm2ddl.auto: update
+packages.to.scan: com.sh.shdemo.entity
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  security:
+    user:
+      password: 123
+      name: user
+  resources:
+    static-locations: /static/
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+  servlet:
+    multipart:
+      max-file-size: 20MB
