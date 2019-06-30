@@ -17,8 +17,8 @@ spring:
     user:
       password: 123
       name: user
-  resources:
-    static-locations: /static/
+#  resources:
+#    static-locations: /static/
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
@@ -30,3 +30,13 @@ spring:
   servlet:
     multipart:
       max-file-size: 20MB
+  freemarker:
+    request-context-attribute: request
+    suffix: .ftl
+    expose-session-attributes: true
+    expose-request-attributes: true
+    content-type: text/html
+    check-template-location: true
+    charset: UTF-8
+    cache: false
+    template-loader-path: classpath:/templates

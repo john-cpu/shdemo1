@@ -21,6 +21,7 @@ public class RegMsg {
     private String ctype;
     private String firstDate;
     private String imgPath;
+    private String state;
 
     public Long getId() {
         return id;
@@ -116,5 +117,13 @@ public class RegMsg {
 
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }
