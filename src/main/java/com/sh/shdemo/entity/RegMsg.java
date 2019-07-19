@@ -1,25 +1,41 @@
 package com.sh.shdemo.entity;
 
+import org.springframework.validation.annotation.Validated;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 
+@Validated
 @Entity
-public class RegMsg {
+public class RegMsg implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "车牌号不能为空")
     private String cph;
+    @NotEmpty(message = "用户名不能为空")
     private String username;
+    @NotEmpty(message = "车辆颜色不能为空")
     private String color;
+    @NotEmpty(message = "发动机id不能为空")
     private String fdjID;
+    @NotEmpty(message = "品牌不能为空")
     private String brand;
+    @NotEmpty(message = "机架id不能为空")
     private String jjID;
+    @NotEmpty(message = "车型号不能为空")
     private String cxh;
+    @NotEmpty(message = "注册时间不能为空")
     private String rtime;
+    @NotEmpty(message = "车种类不能为空")
     private String ctype;
+    @NotEmpty(message = "第一次不能为空")
     private String firstDate;
+    @NotEmpty(message = "图片不能为空")
     private String imgPath;
     private String state;
 

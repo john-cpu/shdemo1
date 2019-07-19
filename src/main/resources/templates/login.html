@@ -1,40 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>我的登录页面</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.editable-select.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        body {
-            padding-top: 50px;
-        }
-
-        .starter-template {
-            padding: 40px 15px;
-            text-align: center;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>登陆页面</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    <script>
+        var loginUrl = window.location.protocol + "//"  + window.location.host + "/"+ secondLevelLocation;
+    </script>
 </head>
 <body>
 <div class="container">
-    <div class="starter-template">
-        <p th:if="${param.logout}" class="bg-warning">已注销</p>
-        <p th:if="${param.error}" class="bg-danger">有错误，请重试</p>
-        <h2>使用账号密码登录</h2>
-        <form class="form-signin" role="form" name="form" th:action="@{/login}" action="/login" method="post">
-            <div class="form-group">
-                <label>账号</label>
-                <input type="text" class="form-control" name="username" value="" placeholder="账号"/>
-            </div>
-            <div class="form-group">
-                <label>密码</label>
-                <input type="password" class="form-control" name="password" placeholder="密码"/>
-            </div>
-            <input type="submit" id="login" value="Login" class="btn btn-primary"/>
-        </form>
-    </div>
+    <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading">请登录</h2>
+        <p>
+            <label for="username" class="sr-only">用户名</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">密码</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
 </div>
-</body>
-</html>
+</body></html>

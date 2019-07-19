@@ -75,16 +75,7 @@
             var checkStatus = table.checkStatus(obj.config.id);
             switch(obj.event){
                 case 'register':
-                    $.ajax({
-                        type:"POST",
-                        url: "/user/rg",
-                        async:false,//同步：意思是当有返回值以后才会进行后面的js程序。
-                        success:function(msg) {
-                            if (msg != null) {//根据返回值进行跳转
-                                window.location.href = '/user/dmanage';
-                            }
-                        }
-                    });
+                    window.location.href = '/user/dmanage';
                     break;
                 case 'edit':
                     var data = checkStatus.data;
@@ -96,26 +87,6 @@
                         success:function(msg) {
                             if (msg != 0) {//根据返回值进行跳转
                                 window.location.href="/user/getDriverMsg?id="+msg;
-                                /*alert(msg);
-                                layui.open({
-                                    type: 1 //此处以iframe举例
-                                    ,title: '当你选择该窗体时，即会在最顶端'
-                                    ,area: ['700px', '400px']
-                                    ,shade: 0
-                                    ,maxmin: true
-                                    ,offset: [ //为了演示，随机坐标
-                                        Math.random()*($(window).height()-300)
-                                        ,Math.random()*($(window).width()-390)
-                                    ]
-                                    ,content: '/user/dmanage'
-                                    ,btn: ['确定', '取消'] //只是为了演示
-                                    ,yes: function(){
-                                        layer.close();
-                                    }
-                                    ,btn2: function(){
-                                        layer.close();
-                                    }
-                                });*/
                             }
                         }
                     });
@@ -167,7 +138,7 @@
                 var studyReload = $('#studyReload').val();
                 table.reload('demo', {
                     page: {
-                        curr: 1 //重新从第 1 页开始
+                        curr: 1
                     }
                     ,where: {
                         username: nameReload

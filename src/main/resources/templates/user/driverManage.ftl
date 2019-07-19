@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="multipart/form-data;" charset="utf-8">
-    <title>Bootstrap 实例 - 响应</title>
+    <title>驾驶员注册</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.editable-select.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body style="width:1000px;height:343px;margin-top:100px;margin-left:250px;border:1px solid green">
-<div style="width:1000px;height:30px;line-height:30px;text-align:left;background: cornflowerblue">驾驶员管理-注册</div>
+<div style="width:1000px;height:30px;line-height:30px;text-align:left;background: cornflowerblue">驾驶员-注册</div>
 <ul id="myTab" class="nav nav-tabs">
     <li class="active">
         <a href="#home" data-toggle="tab">基本信息</a>
@@ -38,11 +38,10 @@
                         <td style="text-align:right"><span style="color:red">* </span>婚姻状况</td>
                         <td>
                             <select name="marriage" style="width:175px;height:28px;border-radius:4px" >
-                                <option value="未婚">未婚</option>
-                                <option value="已婚">已婚</option>
+                                <option <#if dm.marriage=='未婚'>selected</#if> value="未婚">未婚</option>
+                                <option <#if dm.marriage=='已婚'>selected</#if> value="已婚">已婚</option>
                             </select>
                         </td>
-
                     </tr>
                     <tr>
                         <td style="text-align:right"><span style="color:red">* </span>身份证号</td>
@@ -50,8 +49,8 @@
                         <td style="text-align:right"><span style="color:red">* </span>所属公司</td>
                         <td>
                             <select name="company" style="width:175px;height:28px;border-radius:4px">
-                                <option value="四川省成兴运业有限公司">四川省成兴运业有限公司</option>
-                                <option value="四川省当代运业有限公司">四川省当代运业有限公司</option>
+                                <option <#if dm.company=='四川省成兴运业有限公司'>selected</#if> value="四川省成兴运业有限公司">四川省成兴运业有限公司</option>
+                                <option <#if dm.company=='四川省当代运业有限公司'>selected</#if> value="四川省当代运业有限公司">四川省当代运业有限公司</option>
                             </select>
                         </td>
                     </tr>
@@ -59,8 +58,8 @@
                         <td style="text-align:right"><span style="color:red">* </span>性别</td>
                         <td>
                             <select name="sex" style="width:175px;height:28px;border-radius:4px" id="editable-select">
-                                <option value="男">男</option>
-                                <option value="女">女</option>
+                                <option <#if dm.sex=='男'>selected</#if> value="男">男</option>
+                                <option <#if dm.sex=='女'>selected</#if> value="女">女</option>
                             </select>
                         </td>
                         <td style="text-align:right"><span style="color:red">* </span>外语能力</td>
@@ -74,7 +73,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="border:none;text-align:center"><input type="submit"class="btn btn-primary" value="提交"/></td>
-                        <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" value="取消"/></td>
+                        <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" onclick="javascript:history.back(-1);" value="取消"/></td>
                     </tr>
                     </tbody>
                 </table>
@@ -110,8 +109,8 @@
                             <td style="text-align:right"><span style="color:red">* </span>所属公司</td>
                             <td>
                                 <select name="company" style="width:175px;height:28px;border-radius:4px">
-                                    <option value="四川省成兴运业有限公司">四川省成兴运业有限公司</option>
-                                    <option value="四川省当代运业有限公司">四川省当代运业有限公司</option>
+                                    <option  value="四川省成兴运业有限公司">四川省成兴运业有限公司</option>
+                                    <option  value="四川省当代运业有限公司">四川省当代运业有限公司</option>
                                 </select>
                             </td>
                         </tr>
@@ -119,8 +118,8 @@
                             <td style="text-align:right"><span style="color:red">* </span>性别</td>
                             <td>
                                 <select name="sex" style="width:175px;height:28px;border-radius:4px" id="editable-select">
-                                    <option value="男">男</option>
-                                    <option value="女">女</option>
+                                    <option  value="男">男</option>
+                                    <option  value="女">女</option>
                                 </select>
                             </td>
                             <td style="text-align:right"><span style="color:red">* </span>外语能力</td>
@@ -134,7 +133,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="border:none;text-align:center"><input type="submit"class="btn btn-primary" value="提交"/></td>
-                            <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" value="取消"/></td>
+                            <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" onclick="javascript:history.back(-1);" value="取消"/></td>
                         </tr>
                         </tbody>
                     </table>

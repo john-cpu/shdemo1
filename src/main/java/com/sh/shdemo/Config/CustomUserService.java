@@ -14,7 +14,6 @@ public class CustomUserService implements UserDetailsService {
     SysUserRepository userRepository;
     @Autowired
     SysRoleRepository roleRepository;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -22,10 +21,6 @@ public class CustomUserService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("用户名不存在");
         }
-
-        System.out.println("username:"+username);
-        System.out.println("username:"+user.getUsername()+";password:"+user.getPassword());
-
         return new User(user.getUsername(), user.getPassword(), true, true, true, true,
                 user.getAuthorities());
     }

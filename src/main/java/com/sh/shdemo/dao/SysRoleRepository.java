@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@EnableConfigurationProperties()
 public interface SysRoleRepository extends JpaRepository<SysRole,Long> {
     @Query(value="select * from sysrole where id = any(select roles_id from sysuser_sysrole where SysUser_id = :id)",nativeQuery = true)
     List<SysRole> selectByPrimaryKey(@Param("id")Long id);

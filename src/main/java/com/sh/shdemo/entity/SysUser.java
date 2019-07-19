@@ -1,5 +1,6 @@
 package com.sh.shdemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,6 +35,7 @@ public class SysUser implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
     public List<SysRole> getRoles() {
         return roles;

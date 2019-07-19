@@ -1,11 +1,12 @@
 package com.sh.shdemo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity(name="driverMsg")
-public class driverMsg {
+@Entity
+public class driverMsg implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String country;

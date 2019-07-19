@@ -4,7 +4,7 @@
     <#assign path="${springMacroRequestContext.getContextPath()}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>驾驶员信息管理</title>
+    <title>车辆信息管理</title>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="${path}/layui/css/layui.css" rel="stylesheet" media="all" />
     <script src="${path}/layui/layui.all.js"></script>
@@ -57,11 +57,11 @@
         var table = layui.table;
         table.render({
             elem: '#demo'
-            ,height: 560
-            ,url: '/user/cmsg' //数据接口
+            ,height: 520
+            ,url: '/user/cmsg'
             ,page: true //开启分页
             ,toolbar: '#barDemo'
-            ,limit: 11
+            ,limit: 10
             ,cols: [[ //表头
                 {type:'checkbox',fixed: 'id'}
                 ,{field: 'cph', title: '车牌号', width:130}
@@ -101,6 +101,8 @@
                     break;
                 case 'getForbid':
                     var data = checkStatus.data;
+                    alert(data);
+                    alert(JSON.stringify(data));
                     $.ajax({
                         url : "/user/upCmStateEnd",
                         type : "POST",
@@ -163,7 +165,6 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
     });
 </script>
 </body>

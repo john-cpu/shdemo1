@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="multipart/form-data;" charset="utf-8">
     <title>车辆注册</title>
@@ -10,7 +10,7 @@
 
 </head>
 <body style="width:1000px;height:343px;margin-top:100px;margin-left:250px;border:1px solid green">
-<div style="width:1000px;height:30px;line-height:30px;text-align:left;background: cornflowerblue">车辆管理-注册</div>
+<div style="width:1000px;height:30px;line-height:30px;text-align:left;background: cornflowerblue">车辆管理-注册 <#if error??><span style="margin-left:200px;color:red;text-align: center">${error}</span></#if></div>
     <ul id="myTab" class="nav nav-tabs">
         <li class="active">
             <a href="#home" data-toggle="tab">基本信息</a>
@@ -36,12 +36,12 @@
                     <tr>
                         <td style="text-align:right"><span style="color:red">* </span>车辆颜色</td>
                         <td>
-                            <select name="color" style="width:175px;height:28px;border-radius:4px">
-                                <option value="红色">红色</option>
-                                <option value="黄色">黄色</option>
-                                <option value="白色">白色</option>
-                                <option value="黑色">黑色</option>
-                                <option value="棕色">棕色</option>
+                            <select  name="color" style="width:175px;height:28px;border-radius:4px">
+                                <option <#if cm.color=='红色'>selected</#if> value="红色">红色</option>
+                                <option <#if cm.color=='黄色'>selected</#if> value="黄色">黄色</option>
+                                <option <#if cm.color=='白色'>selected</#if> value="白色">白色</option>
+                                <option <#if cm.color=='黑色'>selected</#if> value="黑色">黑色</option>
+                                <option <#if cm.color=='棕色'>selected</#if> value="棕色">棕色</option>
                             </select>
                         </td>
                         <td style="text-align:right"><span style="color:red">* </span>发动机号</td>
@@ -51,11 +51,11 @@
                         <td style="text-align:right"><span style="color:red">* </span>车辆厂牌</td>
                         <td>
                             <select name="brand" style="width:175px;height:28px;border-radius:4px">
-                                <option value="现代">现代</option>
-                                <option value="大众">大众</option>
-                                <option value="奔驰">奔驰</option>
-                                <option value="奥迪">奥迪</option>
-                                <option value="宝马">宝马</option>
+                                <option <#if cm.brand=='现代'>selected</#if> value="现代">现代</option>
+                                <option <#if cm.brand=='大众'>selected</#if> value="大众">大众</option>
+                                <option <#if cm.brand=='奔驰'>selected</#if> value="奔驰">奔驰</option>
+                                <option <#if cm.brand=='奥迪'>selected</#if> value="奥迪">奥迪</option>
+                                <option <#if cm.brand=='宝马'>selected</#if> value="宝马">宝马</option>
                             </select>
                         </td>
                         <td style="text-align:right"><span style="color:red">* </span>车辆机架号</td>
@@ -71,9 +71,9 @@
                         <td style="text-align:right"><span style="color:red">* </span>车辆类型</td>
                         <td>
                             <select name="ctype" style="width:175px;height:28px;border-radius:4px" id="editable-select">
-                                <option value="轿车">轿车</option>
-                                <option value="SUV">SUV</option>
-                                <option value="跑车">跑车</option>
+                                <option <#if cm.ctype=='轿车'>selected</#if> value="轿车">轿车</option>
+                                <option <#if cm.ctype=='SUV'>selected</#if> value="SUV">SUV</option>
+                                <option <#if cm.ctype=='跑车'>selected</#if> value="跑车">跑车</option>
                             </select>
                         </td>
                         <td style="text-align:right"><span style="color:red">* </span>初次登记日期</td>
@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="border:none;text-align:center"><input type="submit"class="btn btn-primary" value="提交"/></td>
-                        <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" value="取消"/></td>
+                        <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" onclick="javascript:history.back(-1);" value="取消"/></td>
                     </tr>
                     </tbody>
                 </table>
@@ -91,7 +91,7 @@
 
             </form>
             <#else >
-                <form action="/user/cartRegister" method="post" enctype="multipart/form-data" >
+                <form action="/user/carRegister" method="post" enctype="multipart/form-data" >
                     <table class="table table-bordered" style="width:700px;float:left">
                         <tbody>
                         <tr>
@@ -148,7 +148,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="border:none;text-align:center"><input type="submit"class="btn btn-primary" value="提交"/></td>
-                            <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" value="取消"/></td>
+                            <td colspan="2" style="border:none;text-align:center"><input type="reset" class="btn btn-primary" onclick="javascript:history.back(-1);" value="取消"/></td>
                         </tr>
                         </tbody>
                     </table>
